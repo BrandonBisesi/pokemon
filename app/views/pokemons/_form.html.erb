@@ -1,0 +1,67 @@
+<%= form_with(model: pokemon) do |form| %>
+  <% if pokemon.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pokemon.errors.count, "error") %> prohibited this pokemon from being saved:</h2>
+
+      <ul>
+        <% pokemon.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :sprite, style: "display: block" %>
+    <%= form.text_field :sprite %>
+  </div>
+
+  <div>
+    <%= form.label :hp, style: "display: block" %>
+    <%= form.number_field :hp %>
+  </div>
+
+  <div>
+    <%= form.label :attack, style: "display: block" %>
+    <%= form.number_field :attack %>
+  </div>
+
+  <div>
+    <%= form.label :defence, style: "display: block" %>
+    <%= form.number_field :defence %>
+  </div>
+
+  <div>
+    <%= form.label :special_attack, style: "display: block" %>
+    <%= form.number_field :special_attack %>
+  </div>
+
+  <div>
+    <%= form.label :special_defence, style: "display: block" %>
+    <%= form.number_field :special_defence %>
+  </div>
+
+  <div>
+    <%= form.label :generation_id, style: "display: block" %>
+    <%= form.text_field :generation_id %>
+  </div>
+
+  <div>
+    <%= form.label :weight, style: "display: block" %>
+    <%= form.number_field :weight %>
+  </div>
+
+  <div>
+    <%= form.label :evolution_chain, style: "display: block" %>
+    <%= form.number_field :evolution_chain %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

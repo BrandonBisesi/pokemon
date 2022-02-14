@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  double_damage_to: MyString
+  double_damage_from: MyString
+  half_damage_to: MyString
+  half_damage_from: MyString
+  no_damage_to: MyString
+  no_damage_from: MyString
+
+two:
+  name: MyString
+  double_damage_to: MyString
+  double_damage_from: MyString
+  half_damage_to: MyString
+  half_damage_from: MyString
+  no_damage_to: MyString
+  no_damage_from: MyString
