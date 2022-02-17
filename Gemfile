@@ -71,4 +71,3 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'poke-api-v2'
