@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_16_233638) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_17_012939) do
   create_table "abilities", force: :cascade do |t|
     t.string "name"
     t.string "effect"
@@ -37,6 +37,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_233638) do
     t.string "effect"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "generation_id", null: false
+    t.index ["generation_id"], name: "index_moves_on_generation_id"
     t.index ["type_id"], name: "index_moves_on_type_id"
   end
 
@@ -47,6 +49,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_233638) do
     t.integer "ability_id", null: false
     t.index ["ability_id"], name: "index_pokemon_abilities_on_ability_id"
     t.index ["pokemon_id"], name: "index_pokemon_abilities_on_pokemon_id"
+  end
+
+  create_table "pokemon_moves", force: :cascade do |t|
+    t.integer "pokemon_id", null: false
+    t.integer "move_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["move_id"], name: "index_pokemon_moves_on_move_id"
+    t.index ["pokemon_id"], name: "index_pokemon_moves_on_pokemon_id"
   end
 
   create_table "pokemon_types", force: :cascade do |t|
@@ -82,8 +93,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_233638) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "moves", "generations"
   add_foreign_key "pokemon_abilities", "abilities"
   add_foreign_key "pokemon_abilities", "pokemons"
+  add_foreign_key "pokemon_moves", "moves"
+  add_foreign_key "pokemon_moves", "pokemons"
   add_foreign_key "pokemon_types", "pokemons"
   add_foreign_key "pokemon_types", "types"
   add_foreign_key "pokemons", "generations"
