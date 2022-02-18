@@ -1,6 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
-
+<h1><%= @move.name %></h1>
+<div><%= @move.effect %></div>
+<ul>
+  <li>Accuracy: <%=@move.accuracy %></li>
+  <li>Power: <%=@move.power %></li>
+  <li>pp: <%=@move.pp %></li>
+  <li>Priority: <%=@move.priority %></li>
+  <li>Ailment: <%=@move.ailment %></li>
+  <li>Ailment chance: <%=@move.ailment_chance %></li>
+</ul>
+<h3>Learnable By:</h3>
+  <table>
+    <tr>
+      <th>No.</th>
+      <th>Picture</th>
+      <th>Name</th>
+    </tr>
+    <% @move.pokemon.each do |pokemon|%>
+      <tr>
+        <td>#<%=link_to pokemon.number, pokemon%></td>
+        <td><%= link_to image_tag(pokemon.sprite), pokemon%></td>
+        <td><%= link_to pokemon.name, pokemon%></td>
+      </tr>
+    <% end%>
+  </table>
 <div>
   <%= link_to "Back to moves", moves_path %>
 </div>
