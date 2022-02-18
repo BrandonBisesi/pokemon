@@ -4,11 +4,7 @@
 
 <div id="abilities">
   <% @abilities.each do |ability| %>
-    <%= render ability %>
-    <p>
-      <%= link_to "Show this ability", ability %>
-    </p>
+    <h4><%= link_to ability.name, ability %></h4>
   <% end %>
 </div>
 
-<%= link_to "New ability", new_ability_path %>

@@ -3,9 +3,32 @@
 <h1><%= @generation.name %></h1>
 <h2><%= @generation.main_region %> Region</h2>
 <div>
-  <%= link_to "Back to generations", generations_path %>
   <h3>Pokemon introduced in generation</h3>
-  <% @generation.pokemon.each do |pokemon|%>
-  <%= link_to image_tag(pokemon.sprite), pokemon%>
-  <%end%>
+    <table>
+      <tr>
+        <th>No.</th>
+        <th>Picture</th>
+        <th>Name</th>
+      </tr>
+      <% @generation.pokemon.each do |pokemon|%>
+        <tr>
+          <td>#<%=pokemon.number%></td>
+          <td><%= link_to image_tag(pokemon.sprite), pokemon%></td>
+          <td><%= link_to pokemon.name, pokemon%></td>
+        </tr>
+      <% end%>
+    </table>
+  <h3>Moves introduces in generation</h3>
+    <table>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+    </tr>
+    <% @generation.move.each do |move|%>
+      <tr>
+        <td><%=link_to move.name, move%></td>
+        <td><%= link_to move.type.name, move.type%></td>
+      </tr>
+    <%end%>
+  </table>
 </div>

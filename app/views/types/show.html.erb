@@ -1,10 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @type %>
+<h1><%= @type.name%></h1>
+<h3>Pokemon</h3>
+  <table>
+    <tr>
+      <th>No.</th>
+      <th>Picture</th>
+      <th>Name</th>
+    </tr>
+    <% @type.pokemon.each do |pokemon|%>
+      <tr>
+        <td>#<%=pokemon.number%></td>
+        <td><%= link_to image_tag(pokemon.sprite), pokemon%></td>
+        <td><%= link_to pokemon.name, pokemon%></td>
+      </tr>
+    <% end%>
+  </table>
+<h3>Moves</h3>
+  <table>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+      </tr>
+      <% @type.move.each do |move|%>
+        <tr>
+          <td><%=link_to move.name, move%></td>
+          <td><%= link_to move.type.name, move.type%></td>
+        </tr>
+      <%end%>
+    </table>
 
-<div>
-  <%= link_to "Edit this type", edit_type_path(@type) %> |
-  <%= link_to "Back to types", types_path %>
-
-  <%= button_to "Destroy this type", @type, method: :delete %>
-</div>

@@ -19,12 +19,9 @@
     </tr>
     <% @move.pokemon.each do |pokemon|%>
       <tr>
-        <td>#<%=link_to pokemon.number, pokemon%></td>
+        <td>#<%=pokemon.number%></td>
         <td><%= link_to image_tag(pokemon.sprite), pokemon%></td>
         <td><%= link_to pokemon.name, pokemon%></td>
       </tr>
     <% end%>
   </table>
-<div>
-  <%= link_to "Back to moves", moves_path %>
-</div>

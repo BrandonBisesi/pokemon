@@ -6,6 +6,6 @@ class GenerationsController < ApplicationController
 
   # GET /generations/1 or /generations/1.json
   def show
-    @generation = Generation.includes(:pokemon).find(params[:id])
+    @generation = Generation.includes(:pokemon).includes(:move).find(params[:id])
   end
 end
