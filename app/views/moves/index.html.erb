@@ -4,11 +4,8 @@
 
 <div id="moves">
   <% @moves.each do |move| %>
-    <%= render move %>
     <p>
-      <%= link_to "Show this move", move %>
+      <%= link_to move.name, move %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New move", new_move_path %>

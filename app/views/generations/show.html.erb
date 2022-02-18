@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @generation %>
-
+<h1><%= @generation.name %></h1>
+<h2><%= @generation.main_region %> Region</h2>
 <div>
-  <%= link_to "Edit this generation", edit_generation_path(@generation) %> |
   <%= link_to "Back to generations", generations_path %>
-
-  <%= button_to "Destroy this generation", @generation, method: :delete %>
+  <h3>Pokemon introduced in generation</h3>
+  <% @generation.pokemon.each do |pokemon|%>
+  <%= link_to image_tag(pokemon.sprite), pokemon%>
+  <%end%>
 </div>

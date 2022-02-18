@@ -4,11 +4,6 @@
 
 <div id="generations">
   <% @generations.each do |generation| %>
-    <%= render generation %>
-    <p>
-      <%= link_to "Show this generation", generation %>
-    </p>
+      <h2><%= link_to generation.name, generation %></h2>
   <% end %>
 </div>
-
-<%= link_to "New generation", new_generation_path %>

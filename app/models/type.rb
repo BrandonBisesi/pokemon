@@ -1,4 +1,6 @@
 class Type < ApplicationRecord
-    has_many :moves
-    has_and_belongs_to_many :pokemons, join_table: "pokemon_types", foreign_key: "pokemon_id"
+  has_many :move
+  has_many :pokemon_type
+  has_many :pokemon, through: "pokemon_type"
+  validates :name, uniqueness: true
 end

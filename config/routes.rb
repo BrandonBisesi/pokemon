@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   resources :moves
   resources :types
   resources :abilities
-  resources :pokemons
+  resources :pokemons, only: %i[index show], path: "pokemon" do
+  end
+  # get "pokemon", to: "pokemons#index"
+  # get "/pokemon/:id", to: "pokemons#show"
+
   resources :generations
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "pokemons#index"
 end
