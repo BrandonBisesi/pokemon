@@ -12,6 +12,10 @@
     <li>Special Defence: <%=@pokemon.special_defence%></li>
     <li>Speed: <%=@pokemon.speed%></li>
   </ul>
+  <h2>Evolutions</h2>
+    <% @evolution.each do |evolution|%>
+      <%= link_to image_tag(evolution.sprite, :alt => evolution.name), evolution %>
+    <%end%>
   <h2>Learnable Moves</h2>
   <table>
     <tr>
