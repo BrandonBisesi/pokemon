@@ -71,3 +71,4 @@ group :test do
   gem "webdrivers"
 end
 
+gem 'kaminari', git: "https://github.com/kaminari/kaminari"

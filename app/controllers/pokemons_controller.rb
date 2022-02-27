@@ -9,4 +9,8 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.includes(:move).find(params[:id])
     @evolution = Pokemon.where(evolution_chain: @pokemon.evolution_chain)
   end
+
+  def search
+    @pokemon_search = Pokemon.includes(:move).find_by(name: params[:search])
+  end
 end

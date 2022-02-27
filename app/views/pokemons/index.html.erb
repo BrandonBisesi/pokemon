@@ -1,9 +1,14 @@
 
 <p style="color: green"><%= notice %></p>
 
+<%= form_with model: @pokemon, method: :get do |form| %>
+  <%= form.text_field :search %>
+  <%= form.submit "Search", :name => nil%>
+<%end%>
+
 <h1>Pokemon</h1>
 <div id="pokemons">
   <% @pokemons.each do |pokemon| %>
-    <%= link_to image_tag(pokemon.sprite, :alt => pokemon.name), pokemon %>
+    <%= link_to  image_tag(pokemon.sprite, :alt => pokemon.name), pokemon %>
   <% end %>
 </div>

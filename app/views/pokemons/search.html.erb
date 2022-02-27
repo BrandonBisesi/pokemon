@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div>
+  <h1><%= @pokemon_search.name %></h1>
+  <%= image_tag(@pokemon_search.sprite, :alt => @pokemon_search.name, :width=>250) %>
+  <h2>Stats</h2>
+  <ul>
+    <li>Attack: <%=@pokemon_search.attack%></li>
+    <li>Defence: <%=@pokemon_search.defence%></li>
+    <li>Special Attack: <%=@pokemon_search.special_attack%></li>
+    <li>Special Defence: <%=@pokemon_search.special_defence%></li>
+    <li>Speed: <%=@pokemon_search.speed%></li>
+  </ul>
+  <h2>Evolutions</h2>
+    <% @evolution.each do |evolution|%>
+      <%= link_to image_tag(evolution.sprite, :alt => evolution.name), evolution %>
+    <%end%>
+  <h2>Learnable Moves</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+    </tr>
+    <% @pokemon_search.move.each do |move|%>
+      <tr>
+        <td><%=link_to move.name, move%></td>
+        <td><%= link_to move.type.name, move.type%></td>
+      </tr>
+    <%end%>
+  </table>
+</div>

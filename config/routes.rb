@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :types
   resources :abilities
   resources :about, only: :index
-  resources :pokemons, only: %i[index show], path: "pokemon" do
+  resources :pokemons, only: %i[index show search], path: "pokemon" do
   end
   # get "pokemon", to: "pokemons#index"
   # get "/pokemon/:id", to: "pokemons#show"

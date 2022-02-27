@@ -1,0 +1,16 @@
+<h1><%=@ability_search.name%></h1>
+<div><%=@ability_search.effect%></div>
+<h3>Pokemon with ability</h3>
+<table>
+    <tr>
+      <th>No.</th>
+      <th>Picture</th>
+      <th>Name</th>
+    </tr>
+    <% @ability_search.pokemon.each do |pokemon|%>
+      <tr>
+        <td>#<%=pokemon.number%></td>
+        <td><%= link_to image_tag(pokemon.sprite), pokemon%></td>
+        <td><%= link_to pokemon.name, pokemon%></td>
+      </tr>
+    <% end%>
