@@ -9,7 +9,12 @@
       <%="--"%>
     <%end%>
   </li>
-  <li>Power: <%=@move.power %></li>
+  <li>Power: <%if(@move.power)%>
+      <%=@move.power%>
+    <%else%>
+      <%="--"%>
+    <%end%>
+    </li>
   <li>pp: <%=@move.pp %></li>
   <li>Priority: <%=@move.priority %></li>
   <li>Ailment: <%=@move.ailment %></li>
