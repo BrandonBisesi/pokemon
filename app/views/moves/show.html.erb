@@ -3,7 +3,12 @@
 <h1><%= @move.name %></h1>
 <div><%= @move.effect %></div>
 <ul>
-  <li>Accuracy: <%=@move.accuracy %></li>
+  <li>Accuracy: <%if(@move.accuracy)%>
+      <%=@move.accuracy%>
+    <%else%>
+      <%="--"%>
+    <%end%>
+  </li>
   <li>Power: <%=@move.power %></li>
   <li>pp: <%=@move.pp %></li>
   <li>Priority: <%=@move.priority %></li>
