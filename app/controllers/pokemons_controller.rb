@@ -1,7 +1,11 @@
 class PokemonsController < ApplicationController
   # GET /pokemons or /pokemons.json
   def index
-    @pokemons = Pokemon.page(params[:page])
+    if params[:search].present?
+      @pokemon = Pokemon.find_by(name: params[:search].capitalize)
+    else
+      @pokemons = Pokemon.page(params[:page])
+    end
   end
 
   # GET /pokemons/1 or /pokemons/1.json
