@@ -1,7 +1,7 @@
 class PokemonsController < ApplicationController
   # GET /pokemons or /pokemons.json
   def index
-    @pokemons = Pokemon.all
+    @pokemons = Pokemon.page(params[:page])
   end
 
   # GET /pokemons/1 or /pokemons/1.json
@@ -10,7 +10,7 @@ class PokemonsController < ApplicationController
     @evolution = Pokemon.where(evolution_chain: @pokemon.evolution_chain)
   end
 
-  def search
-    @pokemon_search = Pokemon.includes(:move).find_by(name: params[:search])
-  end
+  # def search
+  #   @pokemon_search = Pokemon.includes(:move).find_by(name: params[:search])
+  # end
 end
