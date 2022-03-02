@@ -12,8 +12,10 @@
       <%= link_to  image_tag(pokemon.sprite, :alt => pokemon.name), pokemon %>
     <% end %>
     <%= paginate @pokemons %>
+  <% elsif @pokemon_search %>
+    <%=link_to  image_tag(@pokemon_search.sprite, :alt => @pokemon_search.name), @pokemon_search %>
   <%else%>
-    <%=link_to  image_tag(@pokemon.sprite, :alt => @pokemon.name), @pokemon %>
+    <div>Pokemon not found.</div>
   <%end%>
 </div>
 

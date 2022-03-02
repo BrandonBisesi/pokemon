@@ -9,17 +9,4 @@ class Pokemon < ApplicationRecord
   validates :name, :number, uniqueness: true
   validates :sprite, presence: true
   paginates_per 50
-
-  # def self.search(search)
-  #   if search
-  #     pokemon = Pokemon.find_by(name: search)
-  #     if pokemon
-  #       Pokemon.find(pokemon.id)
-  #     else
-  #       @pokemons = Pokemon.all
-  #     end
-  #   else
-  #     @pokemons = Pokemon.all
-  #   end
-  # end
 end

@@ -1,11 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
+<%= form_with model: @move, method: :get do |form| %>
+  <%= form.text_field :search %>
+  <%= form.submit "Search", :name => nil%>
+<%end%>
+
 <h1>Moves</h1>
 
 <div id="moves">
-  <% @moves.each do |move| %>
-      <h4><%= link_to move.name, move %></h4>
-  <% end %>
+  <%if @moves%>
+    <% @moves.each do |move| %>
+        <h4><%= link_to move.name, move %></h4>
+    <% end %>
+    <%= paginate @moves %>
+  <%elsif @move_search%>
+    <h4><%= link_to @move_search.name, @move_search %></h4>
+  <%else%>
+    <div>Move does not exist.</div>
+  <%end%>
 </div>
 
-<%= paginate @moves %>
